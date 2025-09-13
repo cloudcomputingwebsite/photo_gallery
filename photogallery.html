@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        #image {
+            width: 600px;
+            height: 400px;
+            margin: 20px auto;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+            line-height: 400px;
+            font-size: 1.2em;
+            color: #333;
+            border: 2px solid #ccc;
+        }
+        
+        .thumbs img {
+            width: 120px;
+            height: 80px;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: transform 0.2s;
+        }
+        
+        .thumbs img:hover {
+            transform: scale(1.05);
+            border-color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Interactive Photo Gallery</h1>
+
+    <div id="image">Hover over an image below to display here.</div>
+
+    <div class="thumbs">
+        <img src="C:\Users\Nihar\Pictures\Screenshots\Screenshot 2025-08-11 163823.png" alt="Burger" onmouseover="upDate(this)" onmouseout="undo()">
+        <img src="C:\Users\Nihar\Pictures\VideoEditing\WhatsApp Image 2025-09-11 at 09.22.42_4dee4d87.jpg" alt="Lord Shiva" onmouseover="upDate(this)" onmouseout="undo()">
+        <img src="C:\Users\Nihar\Pictures\nature wallpaper.webp" alt="Beautiful Sunrise" onmouseover="upDate(this)" onmouseout="undo()">
+    </div>
+
+    <script>
+        function upDate(previewPic) {
+            // previewPic is the <img> you are hovering over
+            const imageDiv = document.getElementById("image");
+            imageDiv.style.backgroundImage = "url('" + previewPic.src + "')";
+            imageDiv.textContent = previewPic.alt;
+        }
+
+        function undo() {
+            const imageDiv = document.getElementById("image");
+            imageDiv.style.backgroundImage = "url('')";
+            imageDiv.textContent = "Hover over an image below to display here.";
+        }
+    </script>
+
+</body>
+
+</html>
